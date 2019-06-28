@@ -1,0 +1,9 @@
+[package]
+name = "srgb-test"
+version = "0.1.0"
+authors = ["nope"]
+edition = "2018"
+
+[dependencies]
+glium = "0.25"
+gl = "0.12"
