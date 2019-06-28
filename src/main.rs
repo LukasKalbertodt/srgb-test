@@ -20,7 +20,7 @@ fn main() {
     unsafe {
         gl::GetFramebufferAttachmentParameteriv(
             gl::DRAW_FRAMEBUFFER,
-            gl::BACK,
+            gl::BACK_LEFT,
             gl::FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING,
             &mut out as *mut _,
         );
