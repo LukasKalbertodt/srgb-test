@@ -25,17 +25,19 @@ fn main() {
             &mut out as *mut _,
         );
     }
-    println!("out: {}", out);
+    print!("What OpenGL thinks: ");
     if out == gl::LINEAR as i32 {
-        println!("    linear");
+        print!("linear");
     } else if out == gl::SRGB as i32 {
-        println!("    srgb");
+        print!("srgb");
     }
+    println!(" ({})", out);
 
 
-    use crate::glium::glutin::os::ContextTraitExt;
-    println!("{:#?}", gl_window.get_pixel_format());
-    println!("{:?}", unsafe { gl_window.get_egl_display() });
+    println!("What glutin thinks: srgb = {}", gl_window.get_pixel_format().srgb);
+
+    // use crate::glium::glutin::os::ContextTraitExt;
+    // println!("{:?}", unsafe { gl_window.get_egl_display() });
 
 
     let display = glium::Display::from_gl_window(gl_window).unwrap();
@@ -82,7 +84,7 @@ fn main() {
             geometry_shader: None,
             fragment_shader: fragment_shader_src,
             transform_feedback_varyings: None,
-            outputs_srgb: false,  // MARK B ----------------------------------
+            outputs_srgb: false,
             uses_point_size: false,
         }
     ).unwrap();
